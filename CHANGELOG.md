@@ -1,23 +1,11 @@
-### `CHANGELOG.md`
-
-```md
 # Changelog
 
-## v0.0.1
+All notable changes to this project will be documented in this file.
 
-- Initial release of the Azure Event Hub Terraform module.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.0.2
+---
 
-- Added hardcoded values for TLS version.
-- Accomodated multiple identity types.
-- Removed RSG creation from the module.
+## 0.1.0 (2026-05-12)
 
-```
-## v0.1.0 - 2026-05-12
-
-### What's Changed
-
-* No changes
-
-**Full Changelog**: https://github.com/schubergphilis/terraform-azure-mcaf-eventhub/compare/...v0.1.0
