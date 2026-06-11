@@ -16,29 +16,29 @@ provider "azurerm" {
 module "event_hub" {
   source = "../.."
 
-  
-resource_group = {
-  name     = "example-rg"
-  location = "West Europe"
-}
 
-event_hub_namespace = {
-  name = "test-eventhub-namespace"
-  config = {
-    sku                      = "Standard"
-    capacity                 = 1
-    auto_inflate_enabled     = true
-    maximum_throughput_units = 2 # This value must be greater than `capacity`
-
+  resource_group = {
+    name     = "example-rg"
+    location = "West Europe"
   }
-}
 
-tags = {
-  Environment = "Production"
-}
+  event_hub_namespace = {
+    name = "test-eventhub-namespace"
+    config = {
+      sku                      = "Standard"
+      capacity                 = 1
+      auto_inflate_enabled     = true
+      maximum_throughput_units = 2 # This value must be greater than `capacity`
 
-managed_identities = {
-  "user_assigned_resource_ids" = ["xxxxx-xxxxx"]
-}
+    }
+  }
+
+  tags = {
+    Environment = "Production"
+  }
+
+  managed_identities = {
+    "user_assigned_resource_ids" = ["xxxxx-xxxxx"]
+  }
 
 }
