@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.0](https://github.com/schubergphilis-ep/terraform-azure-mcaf-eventhub/compare/v0.2.0...v1.0.0) (2026-08-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* ns auth rule ([#5](https://github.com/schubergphilis-ep/terraform-azure-mcaf-eventhub/issues/5))
+
+### 🐛 Fixes
+
+* ns auth rule ([#5](https://github.com/schubergphilis-ep/terraform-azure-mcaf-eventhub/issues/5)) ([ed20def](https://github.com/schubergphilis-ep/terraform-azure-mcaf-eventhub/commit/ed20defcd18df2e77c5f3da23043702647714997))
+
 ## [0.2.0](https://github.com/schubergphilis-ep/terraform-azure-mcaf-eventhub/compare/v0.1.0...v0.2.0) (2026-07-08)
 
 
