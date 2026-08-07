@@ -56,8 +56,7 @@ variable "eventhub_namespace_customer_managed_key" {
       - infrastructure_encryption_enabled: Whether infrastructure-level encryption is enabled in addition to the CMK. Defaults to true.
   EOT
   type = object({
-    key_vault_id                      = string
-    key_name                          = string
+    key_vault_key_id                  = string
     user_assigned_identity_id         = string
     infrastructure_encryption_enabled = optional(bool, true)
   })
