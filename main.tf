@@ -51,7 +51,7 @@ resource "azurerm_eventhub_namespace_customer_managed_key" "this" {
 resource "azurerm_eventhub_namespace_authorization_rule" "this" {
   for_each            = var.eventhub_namespace_authorization_rules
   name                = each.key
-  namespace_name      = azurerm_eventhub_namespace.this.id
+  namespace_name      = azurerm_eventhub_namespace.this.name
   resource_group_name = azurerm_eventhub_namespace.this.resource_group_name
 
   listen = each.value.listen
