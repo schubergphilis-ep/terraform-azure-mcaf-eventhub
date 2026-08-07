@@ -34,16 +34,10 @@ resource "azurerm_eventhub_namespace" "this" {
   }
 }
 
-data "azurerm_key_vault_key" "eventhub_namespace_cmk_key" {
-  count        = var.eventhub_namespace_customer_managed_key != null ? 1 : 0
-  key_vault_id = var.eventhub_namespace_customer_managed_key.key_vault_id
-  name         = var.eventhub_namespace_customer_managed_key.key_name
-}
-
 resource "azurerm_eventhub_namespace_customer_managed_key" "this" {
   count                             = var.eventhub_namespace_customer_managed_key != null ? 1 : 0
   eventhub_namespace_id             = azurerm_eventhub_namespace.this.id
-  key_vault_key_ids                 = [data.azurerm_key_vault_key.eventhub_namespace_cmk_key[0].versionless_id]
+  key_vault_key_ids                 = [var.eventhub_namespace_customer_managed_key.key_vault_key_id]
   user_assigned_identity_id         = var.eventhub_namespace_customer_managed_key.user_assigned_identity_id
   infrastructure_encryption_enabled = var.eventhub_namespace_customer_managed_key.infrastructure_encryption_enabled
 }
@@ -51,7 +45,7 @@ resource "azurerm_eventhub_namespace_customer_managed_key" "this" {
 resource "azurerm_eventhub_namespace_authorization_rule" "this" {
   for_each            = var.eventhub_namespace_authorization_rules
   name                = each.key
-  namespace_name      = azurerm_eventhub_namespace.this.id
+  namespace_name      = azurerm_eventhub_namespace.this.name
   resource_group_name = azurerm_eventhub_namespace.this.resource_group_name
 
   listen = each.value.listen
